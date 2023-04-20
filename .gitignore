@@ -8,3 +8,4 @@ audioset/*
 *.ckpt
 *.npz
 *.pyc
+output.csv

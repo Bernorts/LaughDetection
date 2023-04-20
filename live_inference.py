@@ -8,6 +8,10 @@ from scipy.io import wavfile
 from audioset import vggish_embeddings
 from laugh_detector.microphone_stream import MicrophoneStream
 
+import signal
+import sys
+
+
 flags = tf.app.flags
 
 flags.DEFINE_string(
@@ -66,6 +70,13 @@ def map_range(x, s, e):
     d = e-s
     return s+d*x
 
+def handle_sigint(signal, frame):
+    # Perform any necessary cleanup here
+    writer.close()
+    print('Exiting...')
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, handle_sigint)
 
 if __name__ == '__main__':
     model = keras.models.load_model(FLAGS.keras_model)

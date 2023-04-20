@@ -49,6 +49,27 @@ The pre-trained models and re-balanced subset data are all licensed under a [Cre
 
 If you want to create your own processed subset of the AudioSet data on a different collection of labels, you can follow the code in `Notebooks/AudiosetProcessing.ipynb`. You can create your own subsets of the Audioset data by creating a list of labels to use for the positive and negative cases.
 
+## Dependencies setup
 
+1. Install pyenv
 
+`brew install pyenv`
 
+1. Follow the after install instructions found [here](https://github.com/pyenv/pyenv#set-up-your-shell-environment-for-pyenv)
+
+1. Install python version 3.7
+
+`pyenv install 3.7`
+
+1. Set version 3.7 as global
+
+`pyenv global 3.7.16`
+
+1. To solve conflict between python/python3 on Mac, add the following to your .zshcr file:
+
+```
+alias python="$(pyenv which python)"
+alias pip="$(pyenv which pip)"
+```
+
+1. You can now install dependencies and run the detector
